@@ -53,4 +53,4 @@ Contributions are welcome! If you find issues or have suggestions for improvemen
 
 ## Author
 
-[Your Name/Username - Optional]
+Mohammed Alam
