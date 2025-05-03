@@ -1,0 +1,214 @@
+/* Import fonts defined in HTML */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Devanagari:wght@400&display=swap');
+
+/* --- Base & Body --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Keep body overflow hidden */
+    font-family: 'Noto Sans Devanagari', sans-serif; /* Devanagari default */
+    background-color: #1f2023; /* Dark charcoal background */
+    color: #e0e0e0; /* Default light text color */
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh; /* Dynamic viewport height */
+}
+
+/* --- Container --- */
+.container {
+    width: 100vw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px; /* Adjusted padding */
+    box-sizing: border-box;
+    background-color: transparent; /* Use body background */
+}
+
+/* --- Flashcard --- */
+.flashcard {
+    background-color: #2c2f33; /* Slightly lighter dark card */
+    border: none; /* Remove default border */
+    border-radius: 20px; /* Softer corners */
+    padding: 20px; /* Padding around content */
+    width: 100%;
+    max-width: 550px; /* Adjusted max width */
+    box-sizing: border-box;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Softer, deeper shadow */
+    flex-grow: 1; /* Allow flashcard to take available space */
+    flex-shrink: 1; /* Allow flashcard to shrink */
+    display: flex; /* Make flashcard a flex container */
+    flex-direction: column; /* Stack contents vertically */
+    align-items: center; /* Center contents horizontally */
+    overflow-y: hidden; /* Prevent scrolling within the card */
+    min-height: 0; /* Allow shrinking */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+    gap: 20px; /* Increased gap between major sections */
+}
+
+/* --- Typography & Content Styling --- */
+
+.urdu-forms {
+    width: 100%;
+    /* --- Grid Layout for Forms (2x2) --- */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 15px 10px; /* Vertical gap 15px, Horizontal gap 10px */
+    justify-items: center; /* Center grid items horizontally */
+    align-items: center; /* Center grid items vertically */
+}
+
+.form-label {
+    font-size: clamp(0.85em, 2.8vw, 1.1em);
+    color: #99aab5; /* Muted label color */
+    /* margin-bottom: 5px; */ /* Removed margin, using grid gap instead */
+    display: flex; /* Use flex to align label and character */
+    flex-direction: column; /* Stack label above character */
+    align-items: center; /* Center content within the flex item */
+    direction: ltr; /* Label direction */
+    text-align: center; /* Center text within label */
+    font-weight: 300; /* Lighter weight for labels */
+    /* Removed padding-left */
+}
+
+.urdu-char {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(3em, 10vw, 5em); /* Larger main characters */
+    font-weight: 700; /* Bold Urdu */
+    color: #ffffff; /* Bright white for high contrast */
+    direction: rtl; /* Urdu character direction */
+    display: inline-block; /* Allows centering */
+    min-width: 1.5em; /* Ensure minimum width */
+    text-align: center; /* Center the character */
+    /* Removed margin-left */
+    /* Removed vertical-align */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle text shadow */
+    margin-top: 5px; /* Small space between label and char */
+}
+
+.details {
+    width: 100%;
+    text-align: center;
+    flex-grow: 1; /* Allow details section to take remaining space */
+    flex-shrink: 1; /* Allow shrinking */
+    display: flex; /* Make details a flex container */
+    flex-direction: column; /* Stack its contents */
+    justify-content: center; /* Center contents vertically within details */
+    align-items: center; /* Center contents horizontally */
+    gap: 15px; /* Increased gap between elements inside details */
+    min-height: 0; /* Allow shrinking */
+}
+
+.devanagari-sound {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: clamp(1.6em, 5.5vw, 2.6em);
+    color: #ffcc80; /* Soft Amber/Gold */
+    font-weight: 500; /* Medium weight */
+    min-height: 1.5em; /* Reserve space even when hidden */
+    display: flex; /* Use flex to center text vertically if needed */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensure centering works */
+}
+
+.example-word {
+    padding-top: 15px; /* Separator line padding */
+    border-top: 1px solid #4f545c; /* Darker separator line */
+    width: 100%;
+    /* --- Flex Layout for Example --- */
+    display: flex; /* Make example-word a flex container */
+    flex-direction: column; /* Stack Urdu and Devanagari */
+    align-items: center; /* Center text horizontally */
+    gap: 5px; /* Small gap between Urdu and Devanagari */
+}
+
+/* Removed .example-word p rule */
+
+.urdu-word {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(2em, 7vw, 3.2em);
+    color: #e0e0e0; /* Off-white for example */
+    direction: rtl; /* Urdu word direction */
+    /* Removed margin-bottom */
+    text-align: center; /* Center the word */
+}
+
+.devanagari-word {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: clamp(1.1em, 3.8vw, 1.7em);
+    color: #b0b0b0; /* Lighter gray for Devanagari example */
+    /* Removed margin-top */
+    line-height: 1.5;
+    font-weight: 300; /* Lighter weight */
+    text-align: center; /* Center the word */
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Buttons & Navigation --- */
+
+button {
+    padding: 14px 28px; /* Larger padding */
+    font-size: clamp(0.9em, 3vw, 1.1em);
+    font-weight: 500; /* Medium weight */
+    border: none;
+    border-radius: 30px; /* Pill shape */
+    cursor: pointer;
+    background-color: #4db6ac; /* Teal accent */
+    color: #ffffff;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 8px; /* Increased margin */
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+button:hover {
+    background-color: #26a69a; /* Darker Teal on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+     transform: translateY(0px); /* Press down effect */
+     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#reveal-btn {
+    background-color: #546e7a; /* Blue Grey for reveal */
+    color: #eceff1; /* Lighter text */
+    min-width: 180px; /* Wider reveal button */
+}
+
+#reveal-btn:hover {
+    background-color: #455a64; /* Darker Blue Grey */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 550px; /* Match card max-width */
+    padding: 10px 0; /* Adjusted padding */
+    background-color: transparent; /* Use body background */
+    flex-shrink: 0; /* Prevent navigation from shrinking */
+    margin-top: auto; /* Push navigation to the bottom */
+}
+
+#counter {
+    font-size: clamp(1em, 3.2vw, 1.2em);
+    color: #99aab5; /* Muted counter text */
+    font-weight: 500; /* Medium */
+}

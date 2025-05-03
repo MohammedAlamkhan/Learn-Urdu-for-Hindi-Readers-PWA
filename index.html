@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Urdu Cards">
+    <meta name="apple-mobile-web-app-title" content="Urdu Cards">
+    <meta name="theme-color" content="#1f2023"> <meta name="msapplication-navbutton-color" content="#1f2023"> <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="Urdu Alphabet Flashcards with Devanagari Sound and Examples">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <title>Urdu Alphabet Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Noto+Sans+Devanagari:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="flashcard">
+            <div class="urdu-forms">
+                <div class="form-label">Isolated: <span id="isolated-form" class="urdu-char"></span></div>
+                <div class="form-label">Initial: <span id="initial-form" class="urdu-char"></span></div>
+                <div class="form-label">Medial: <span id="medial-form" class="urdu-char"></span></div>
+                <div class="form-label">Final: <span id="final-form" class="urdu-char"></span></div>
+            </div>
+
+            <div class="details">
+                 <div id="devanagari-sound" class="devanagari-sound hidden">
+                    </div>
+                <div class="example-word">
+                    <div id="example-urdu" class="urdu-word">
+                        </div>
+                    <div id="example-devanagari" class="devanagari-word">
+                        </div>
+                </div>
+            </div>
+
+            <button id="reveal-btn">Reveal Sound</button>
+        </div>
+
+        <div class="navigation">
+            <button id="prev-btn">Previous</button>
+            <span id="counter">1 / X</span>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js') // Path relative to origin
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
